@@ -1,45 +1,54 @@
-import { Calendar } from "lucide-react"
+import React from "react"
+import { CalendarDays } from "lucide-react"
 
-export default function UpcomingEvents() {
+interface TimelineEvent {
+  year: string
+  title: string
+  description: string
+}
+
+const events: TimelineEvent[] = [
+  { year: "1900", title: "Event 1", description: "Description of Event 1" },
+  { year: "1920", title: "Event 2", description: "Description of Event 2" },
+  { year: "1940", title: "Event 3", description: "Description of Event 3" },
+  { year: "1960", title: "Event 4", description: "Description of Event 4" },
+  { year: "1980", title: "Event 5", description: "Description of Event 5" },
+]
+
+const TimelineHorizontal: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-12 grid md:grid-cols-2 gap-8">
-      <div className="space-y-8">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-semibold text-[#A17E46]">Upcoming Events</h2>
-          <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-          </p>
-          <p className="text-gray-600">
-            mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-          </p>
-        </div>
+    <div className="p-4 md:p-8">
+      <h2 className="text-2xl font-bold text-amber-700 mb-8 text-center">Timeline</h2>
 
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <div className="w-12 h-12 bg-[#A17E46]/10 rounded-lg flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-[#A17E46]" />
-            </div>
-            <h3 className="text-xl font-medium text-[#A17E46]">Talpur Melo</h3>
-            <p className="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="w-12 h-12 bg-[#A17E46]/10 rounded-lg flex items-center justify-center">
-              <Calendar className="w-6 h-6 text-[#A17E46]" />
-            </div>
-            <h3 className="text-xl font-medium text-[#A17E46]">Title Goes Here</h3>
-            <p className="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            </p>
-          </div>
-        </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 overflow-x-auto">
+        {events.map((event, index) => (
+          <React.Fragment key={index}>
+            <TimelineNode event={event} isEven={index % 2 === 0} />
+            {index < events.length - 1 && <div className="hidden md:block w-16 h-[2px] bg-amber-700 self-center" />}
+          </React.Fragment>
+        ))}
       </div>
-
-      <div className="bg-gray-200 rounded-lg min-h-[400px]">{/* Placeholder for map or image */}</div>
     </div>
   )
 }
+
+const TimelineNode: React.FC<{ event: TimelineEvent; isEven: boolean }> = ({ event, isEven }) => {
+  return (
+    <div className={`flex flex-col items-center ${isEven ? "md:flex-col-reverse" : ""}`}>
+      <div className="text-sm font-medium text-amber-700 mb-2 md:mb-0 md:mt-2">{event.year}</div>
+      <div className="h-8 w-[2px] bg-amber-700 md:h-16" />
+      <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center p-2 transition-transform hover:scale-110 group">
+        <div className="text-center">
+          <CalendarDays className="w-8 h-8 text-amber-700 mx-auto mb-1" />
+          <div className="text-xs font-semibold text-amber-700">{event.title}</div>
+        </div>
+        <div className="absolute invisible group-hover:visible bg-white border border-amber-200 rounded-md p-2 w-48 text-xs text-gray-700 shadow-lg">
+          {event.description}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default TimelineHorizontal
 
