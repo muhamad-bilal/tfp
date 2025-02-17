@@ -5,16 +5,18 @@ const Hero = () => {
         <div className="max-w-3xl text-center sm:text-left">
           <h1 className="space-y-2 text-[#987B51] font-bold">
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-              The Talpur Dynasty:
+              The Talpur Foundation:
             </div>
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-              Legacy of Sindh
+              Leadership
             </div>
           </h1>
           <p className="mt-4 sm:mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
-            Historical Narrative: A detailed timeline of the Talpur rule, describing origins, key milestones, and
-            contributions.
+            description
           </p>
+          <button className="mt-6 px-6 py-3 bg-[#A17E46] text-white text-lg font-semibold rounded-lg shadow-md hover:bg-opacity-90 transition">
+            Read More
+          </button>
         </div>
       </div>
     </div>

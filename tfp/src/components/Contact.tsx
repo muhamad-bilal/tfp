@@ -1,24 +1,33 @@
-export default function ContactMembership() {
-
+export default function Testimonial() {
     return (
-
-        <section className="relative min-h-[600px] bg-[#A17E46]/50 w-full">
-            {/* Curved white header */}
+        <div className="flex flex-col md:flex-row max-w-3xl mx-auto gap-8 items-center mb-8 pb-8 px-4 sm:px-6 lg:px-8">
             <div
-                className="absolute top-0 left-0 right-0 h-32 bg-white"
-                style={{
-                    borderRadius: "0 0 100% 100%",
-                    transform: "scaleX(1.1)",
-                }}
-            />
-            {/* Content */}
-            <div className="relative z-10 max-w-4xl mx-auto pt-40 px-4 text-center">
-                <h2 className="text-4xl font-light text-[#8B7355] mb-8">Contact & Membership</h2>
-                <p className="mb-12 text-[#8B7355]">contact details</p>
-                <button className="px-6 py-3 bg-[#69532F] text-white rounded hover:bg-[#3C2A21] transition-colors duration-300">
-                    Apply for membership
-                </button>
+                style={{ backgroundColor: "#B39B77" }}
+                className="relative w-full md:w-2/3 p-6 sm:p-8 min-h-[200px] flex items-center"
+            >
+                <span className="absolute top-4 right-4 text-white text-4xl sm:text-6xl font-serif" style={{ lineHeight: 1 }}>
+                    "&nbsp;&nbsp;"
+                </span>
+                <p className="text-white text-base sm:text-lg z-10 relative text-center md:text-left">
+                    "This is a fantastic service! It has greatly improved my workflow and efficiency. Highly recommended!"
+                </p>
             </div>
-        </section>
+
+            <div className="flex flex-col items-center gap-2">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gray-200 overflow-hidden">
+                    <img
+                        src="/placeholder.svg"
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+                <h3 style={{ color: "#B39B77" }} className="font-medium text-lg sm:text-xl">
+                    Mustafa Talpur
+                </h3>
+                <p style={{ color: "#B39B77" }} className="text-xs sm:text-sm">
+                    CEO
+                </p>
+            </div>
+        </div>
     )
 }

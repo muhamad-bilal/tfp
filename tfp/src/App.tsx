@@ -1,8 +1,9 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import UpcomingEvents from './components/Upcomingevents'
-import ContentSections from './components/History'
-import ContactMembership from './components/Contact'
+import TeamProfiles from './components/Team'
+import ContentSections from './components/MissionVision'
+import Projects from './components/Projects'
+import Testimonial from './components/Contact'
 import Footer from './components/Footer'
 
 
@@ -11,10 +12,11 @@ function App() {
     <div className="w-full min-h-screen">
       <Navbar />
       <Hero />
-      <UpcomingEvents />
+      <TeamProfiles />
       <ContentSections />
-      {/* <ContactMembership /> */}
-      <Footer />
+      <Projects />
+      <Testimonial />
+      {/* <Footer /> */}
     </div>
   )
 }
